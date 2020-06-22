@@ -9,7 +9,7 @@ const AddListButton = () => {
     return (
         <div className='add-list'>
             <List
-                onClick={() => alert(1)}
+                onClick={() => setVisiblePopup(true)}
                 items={[
                     {
                         className: "list__add-button",
@@ -44,7 +44,8 @@ const AddListButton = () => {
             />
             {visiblePopup && (
                 <div className='add-list__popup'>
-                    <h1>123</h1>
+                    <input className='field' type="text" placeholder="Add New Task"/>
+                    <button className="button">All Task</button>
                 </div>)}
         </div>
     );
