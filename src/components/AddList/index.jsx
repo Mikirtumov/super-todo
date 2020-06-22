@@ -1,10 +1,15 @@
 import React, {useState} from "react";
 import List from "../List/List";
 import './AddButtonList.scss';
+import Badge from "../Badge";
+import closeSvg from '../../img/close.svg'
 
-const AddListButton = () => {
+
+
+const AddList = ({colors}) => {
 
     const [visiblePopup, setVisiblePopup] = useState(false)
+    const [selectedColor, setSelectedColor] = useState(colors[0].id)
 
     return (
         <div className='add-list'>
@@ -44,11 +49,23 @@ const AddListButton = () => {
             />
             {visiblePopup && (
                 <div className='add-list__popup'>
+                    <img onClick={() => setVisiblePopup(false)} src={closeSvg} alt="Close Button" className="add-list__popup-close-btn"/>
                     <input className='field' type="text" placeholder="Add New Task"/>
+                    <div className="add-list__popup-colors">
+
+                        {
+                            colors.map((color) =>
+                                <Badge
+                                    onClick={() => setSelectedColor(color.id)}
+                                    key={color.id}
+                                    color={color.name}
+                                    className={ selectedColor=== color.id && 'active'}/>)
+                        }
+                    </div>
                     <button className="button">All Task</button>
                 </div>)}
         </div>
     );
 };
 
-export default AddListButton;
+export default AddList;
