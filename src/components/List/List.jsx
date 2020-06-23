@@ -2,7 +2,7 @@ import React from "react";
 import './List.scss';
 import classNames from 'classnames';
 import Badge from "../Badge";
-
+import removeSvg from '../../img/remove.svg'
 
 const List = ({items, isRemovable, onClick}) => {
 
@@ -18,9 +18,17 @@ const List = ({items, isRemovable, onClick}) => {
                             item.icon
                         ) : (
                             <Badge color={item.color}/>
-                            )}
+                        )}
                     </i>
                     <span>{item.name}</span>
+                    {isRemovable && (
+                        <img
+                            className='list__remove-icon'
+                            src={removeSvg}
+                            alt="Remove Icon"
+                        />
+                    )}
+
                 </li>
             ))}
 
