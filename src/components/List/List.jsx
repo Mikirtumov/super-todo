@@ -4,8 +4,13 @@ import classNames from 'classnames';
 import Badge from "../Badge";
 import removeSvg from '../../img/remove.svg'
 
-const List = ({items, isRemovable, onClick}) => {
+const List = ({items, isRemovable, onClick, onRemove}) => {
 
+    const removeList = (item) => {
+        if(window.confirm("are you sure you want to delete")){
+            onRemove(item)
+        }
+    }
 
     return (
 
@@ -26,6 +31,7 @@ const List = ({items, isRemovable, onClick}) => {
                             className='list__remove-icon'
                             src={removeSvg}
                             alt="Remove Icon"
+                            onClick={() => removeList(item)}
                         />
                     )}
 

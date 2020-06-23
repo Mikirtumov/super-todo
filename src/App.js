@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import List from "./components/List/List";
 import AddList from './components/AddList'
 import DB from './img/db.json'
+import Tasks from "./components/Tasks";
 
 const initialTasks = DB.lists.map(item => {
     item.color = DB.colors.filter(color => color.id === item.colorId)[0].name;
@@ -35,16 +36,17 @@ function App() {
                             name: "All Tasks"
                         }
                     ]}
-
                 />
                 <List
                     items={lists}
-                    isRemovable
-                />
+                    onRemove={list => {
+                        console.log(list)
+                    }}
+                    isRemovable/>
                 <AddList onAdd={onAddList} colors={DB.colors}/>
             </div>
             <div className="todo__tasks">
-
+                <Tasks/>
             </div>
         </div>
     );
