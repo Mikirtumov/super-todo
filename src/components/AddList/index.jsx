@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import List from "../List/List";
+import Index from "../List";
 import './AddButtonList.scss';
 import Badge from "../Badge";
 import closeSvg from '../../img/close.svg'
@@ -29,7 +29,7 @@ const AddList = ({colors, onAdd}) => {
 
     return (
         <div className='add-list'>
-            <List
+            <Index
                 onClick={() => setVisiblePopup(true)}
                 items={[
                     {

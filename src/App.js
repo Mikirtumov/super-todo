@@ -1,8 +1,5 @@
 import React, {useState} from 'react';
-import List from "./components/List/List";
-import AddList from './components/AddList'
-import DB from './img/db.json'
-import Tasks from "./components/Tasks";
+import {List, AddList, Tasks} from "./components";
 
 const initialTasks = DB.lists.map(item => {
     item.color = DB.colors.filter(color => color.id === item.colorId)[0].name;

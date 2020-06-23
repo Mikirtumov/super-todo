@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Badge from "../Badge";
 import removeSvg from '../../img/remove.svg'
 
-const List = ({items, isRemovable, onClick, onRemove}) => {
+const Index = ({items, isRemovable, onClick, onRemove}) => {
 
     const removeList = (item) => {
         if(window.confirm("are you sure you want to delete")){
@@ -44,4 +44,4 @@ const List = ({items, isRemovable, onClick, onRemove}) => {
     );
 };
 
-export default List;
+export default Index;
